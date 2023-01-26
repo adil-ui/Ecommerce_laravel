@@ -45,3 +45,56 @@ footer{
 .bottom_right{
     background-image: url(../images/img_5.jpg);
 }
+
+.aside_link{
+    text-decoration:none;
+    color:black;
+    font-size: 17px;
+    font-weight:500;
+    transition: .5s;
+    display: block;
+    padding: 15px 0;
+  }
+  .aside_item{
+    transition: .5s;
+  }
+  .aside_item:hover{
+    background-color: #f0f0f0;
+  }
+  .stroke-text {
+    -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-color: #fff;
+    color: transparent !important;
+}.product_img {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+.product_img img{
+    width: 100%;
+    height: 250px;
+    transition: .5s;
+}
+.product_img img:hover{
+    transform: scale(1.1);
+
+}
+.discount{
+    top: 5px;
+    right: 5px;
+    z-index: 99;
+}
+.cart{
+    background-color: red;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 5px;
+    right: -2px;
+    font-size: 14px;
+}
+.profile_img{
+    width: 130px;
+}

@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('adress', 255);
             $table->integer('phone');
             $table->string('picture', 255);
-
         });
     }
 
