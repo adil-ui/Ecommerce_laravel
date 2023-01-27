@@ -63,7 +63,7 @@
                   </li>
 
                   <li class="nav-item position-relative">
-                    <a class="nav-link" href="#"><i class="bi bi-cart3 fs-4"></i></a>
+                    <a class="nav-link" href="{{ route('cart')}}"><i class="bi bi-cart3 fs-4"></i></a>
                     <div class="rounded-circle position-absolute  text-white cart">0</div>
                 </li>
                 </ul>

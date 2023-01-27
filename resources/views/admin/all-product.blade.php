@@ -11,7 +11,7 @@
 @section("content")
     <div class=" bg-opacity-25">
         <div class='new_article container mx-auto d-flex justify-content-between  row  py-4'>
-            <aside class="col-3 bg-white px-0 py-1 rounded-2">
+            <aside class="col-3 bg-white px-0 py-1 rounded-2 shadow-sm">
                 <div class='aside_item'>
                   <a href="{{route('profile')}}" class='aside_link px-5'><i class="bi bi-person align-middle fs-4 me-3"></i> My Informations</a>
                 </div>
@@ -25,7 +25,7 @@
                   <a href="#" class='aside_link px-5'> <i class="bi bi-box2 align-middle fs-4 me-3"></i> My orders</a>
                 </div>
             </aside>
-            <div class="col-8 bg-white  py-4 rounded-2">
+            <div class="col-8 bg-white  py-4 rounded-2 shadow-sm">
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -48,8 +48,8 @@
                         <td class='pt-4'>{{$product->discount_rate }}%</td>
                         <td class='pt-4'>{{$product->promotion_price }} Dh</td>
                         <td>
-                        <a href="" class="btn btn-warning">Edit</a>
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <a href="{{ route('edit-product', ['id' => $product->id])}}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('delete-product', ['id' => $product->id])}}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                     @endforeach

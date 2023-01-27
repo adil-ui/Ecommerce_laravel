@@ -8,6 +8,8 @@ use App\Http\Controllers\AddProductController;
 use App\Http\Controllers\AllProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\EditProductController;
+use App\Http\Controllers\DeleteProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +38,12 @@ Route::post('/register', [AuthController::class, 'register'])->name("post-regist
 Route::get('/add-product', [AddProductController::class, 'addProduct'])->name("add-product");
 Route::post('/add-product', [AddProductController::class, 'addProduct'])->name("post-product");
 
+Route::get('/edit-product/{id}', [EditProductController::class, 'index'])->name("edit-product");
+Route::post('/edit-product/{id}', [EditProductController::class, 'updateProduct'])->name("post-edit");
+
 Route::get('/all-product', [AllProductController::class, 'index'])->name("all-product");
+
+Route::get('/delete-product/{id}', [DeleteProductController::class, 'index'])->name("delete-product");
 
 
 

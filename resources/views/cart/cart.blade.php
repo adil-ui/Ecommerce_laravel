@@ -4,10 +4,11 @@
     body{
         background-color: rgb(243, 243, 243) !important;
     }
-    img{
+    .cart_img{
         width: 150px;
         height: 150px;
     }
+
     .cart_command{
         height: 200px;
     }
@@ -21,7 +22,7 @@
         <div class="col-8 bg-white rounded-1 p-4">
             <div class="row">
                 <div class="col-3">
-                    <img src="{{asset('images/img_3.jpg')}}" alt="">
+                    <img src="{{asset('images/img_3.jpg')}}" alt="" class="cart_img">
                 </div>
                 <div class="col-7">
                     <h4 class="fw-bolder">Product 1</h4>
@@ -32,7 +33,7 @@
                     <h6 class="text-danger "><del>600.00dh</del> </h6>
                 </div>
             </div>
-            <div class="d-flex justify-content-between">                
+            <div class="d-flex justify-content-between mt-3">
                 <div>
                     <a href="#" class="btn btn-danger">Supprimer</a>
                 </div>
@@ -41,7 +42,7 @@
                     <span class="px-4">1</span>
                     <button class="btn btn-warning">-</button>
                 </div>
-                
+
             </div>
         </div>
         <div class="cart_command col-3 bg-white rounded-1 p-4">
@@ -53,5 +54,5 @@
             <button class="btn btn-warning">Command</button>
         </div>
     </section>
-   
+
 @endsection
