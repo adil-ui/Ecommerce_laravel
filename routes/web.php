@@ -7,6 +7,7 @@ use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\AddProductController;
 use App\Http\Controllers\AllProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,9 +51,6 @@ Route::get('/checkout', function () {
     return view('checkout.checkout');
 });
 
-Route::get('/cart', function () {
-    return view('cart.cart');
-});
 
-
-
+Route::get('/cart', [CartController::class, 'index'])->name("cart");
+Route::get('/add-cart/{productId}', [CartController::class, 'addToCart'])->name("add-cart");

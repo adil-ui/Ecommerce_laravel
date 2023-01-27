@@ -18,18 +18,14 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarScroll">
-                <form class="d-flex mx-sm-0 mx-md-auto pt-2" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-dark" type="submit">Search</button>
-                </form>
-                <ul class="navbar-nav  my-2 my-lg-0 pt-1 d-flex align-items-center">
-                  <li class="nav-item pt-1 me-2">
+                <ul class="navbar-nav  my-2 my-lg-0 ms-auto d-flex align-items-center">
+                  <li class="nav-item  me-2">
                     <a class="nav-link active" href="/home">Home</a>
                   </li>
-                  <li class="nav-item pt-1 me-2">
+                  <li class="nav-item  me-2">
                     <a class="nav-link active" href="/home">Our Product</a>
                   </li>
-                  <li class="nav-item dropdown pt-1 me-2">
+                  <li class="nav-item dropdown  me-2">
                     <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Category
                     </a>
@@ -43,24 +39,24 @@
 
                   <li class="nav-item dropdown me-2">
                         @if (Auth::check())
-                        <a class="nav-link dropdown-toggle pt-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="/{{Auth::user()->picture}}" alt="" class="rouded-circle" widht='40' height='40' style='border'>
                             <span>Hi, {{Auth::user()->name}}</span>
                         </a>
                         @else
                             <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-circle fs-4 text-dark"></i>
+                                <i class="bi bi-person-circle fs-4 text-dark align-middle"></i>
                             </a>
                         @endif
 
                     <ul class="dropdown-menu">
                         @if (Auth::check())
-                            <li><a class="dropdown-item " href="{{ route('logout')}}">Log Out</a></li>
+                            <li><a class="dropdown-item  py-2 px-4" href="{{ route('logout')}}"><i class="bi bi-box-arrow-left align-middle fs-5 me-2"></i> Log Out</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ route('profile')}}">profile</a></li>
+                            <li><a class="dropdown-item py-2 px-4" href="{{ route('profile')}}"><i class="bi bi-person align-middle fs-5 me-2"></i> profile</a></li>
                         @else
-                            <li><a class="dropdown-item" href="{{ route('login')}}">Login</a></li>
-                            <li><a class="dropdown-item" href="{{ route('register')}}">Register</a></li>
+                            <li><a class="dropdown-item py-2 px-4" href="{{ route('login')}}"><i class="bi bi-box-arrow-in-right align-middle fs-5 me-2"></i> Login</a></li>
+                            <li><a class="dropdown-item py-2 px-4" href="{{ route('register')}}"><i class="bi bi-person-plus align-middle fs-5 me-2"></i> Register</a></li>
                         @endif
 
                     </ul>

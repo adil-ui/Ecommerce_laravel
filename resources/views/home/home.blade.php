@@ -68,7 +68,7 @@
                         <h5 class="text-bold" style="color:#FFB100; font-size:22px">{{$product->promotion_price}}.00 Dh</h5>
                     </div>
                     <div class="d-flex justify-content-end mt-3">
-                        <a href="#" class="btn btn-warning fw-semibold">Add To Cart <i class="ms-2 bi bi-cart-plus-fill"></i></a>
+                        <a href="{{ route('add-cart', ['productId' => $product->id])}}" class="btn btn-warning fw-semibold">Add To Cart <i class="ms-2 bi bi-cart-plus-fill"></i></a>
                     </div>
                 </div>
             </div>

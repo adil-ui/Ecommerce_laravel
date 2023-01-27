@@ -11,32 +11,34 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function login() {
+    public function login()
+    {
         /**if($request->isMethod("post")) {
-            $email = $request->email;
-            $password = $request->password;
-            $user = User::where("email", "=", $email)->getQuery();
-            if($user->exists()) {
-                $user = $user->first();
-                if(Hash::check($password, $user->password)) {
-                    return redirect()->route('home');
-                }
-            }
-            $request->session()->flash("error", "User not found");
-            return back()->withInput();
+        $email = $request->email;
+        $password = $request->password;
+        $user = User::where("email", "=", $email)->getQuery();
+        if($user->exists()) {
+        $user = $user->first();
+        if(Hash::check($password, $user->password)) {
+        return redirect()->route('home');
+        }
+        }
+        $request->session()->flash("error", "User not found");
+        return back()->withInput();
         } */
         return view('auth.login');
     }
 
-    public function logUser(Request $request) {
+    public function logUser(Request $request)
+    {
         /*$email = $request->email;
         $password = $request->password;
         $user = User::where("email", "=", $email)->getQuery();
         if($user->exists()) {
-            $user = $user->first();
-            if(Hash::check($password, $user->password)) {
-                return redirect()->route('home');
-            }
+        $user = $user->first();
+        if(Hash::check($password, $user->password)) {
+        return redirect()->route('home');
+        }
         }*/
         $credentials = $request->validate([
             'email' => ['required', 'email'],
@@ -49,13 +51,13 @@ class AuthController extends Controller
             return redirect()->route('home');
         }
 
-
-        $request->session()->flash("error", "User not found");
+        session()->flash("error", "User not found");
         return back()->withInput();
     }
 
-    public function register(Request $request) {
-        if($request->isMethod("post")) {
+    public function register(Request $request)
+    {
+        if ($request->isMethod("post")) {
             $user = new User;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
@@ -65,7 +67,7 @@ class AuthController extends Controller
             $user->created_at = Carbon::now();
             $user->updated_at = Carbon::now();
             $user->role = 'customer';
-            if($request->hasFile('picture') && $request->file('picture')->isValid()) {
+            if ($request->hasFile('picture') && $request->file('picture')->isValid()) {
                 $user->picture = 'storage/' . $request->picture->store('user/images');
             }
             $user->save();

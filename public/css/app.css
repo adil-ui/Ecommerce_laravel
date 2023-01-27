@@ -85,7 +85,7 @@ footer{
     z-index: 99;
 }
 .cart{
-    background-color: red;
+    background-color: #ffc107;
     width: 18px;
     height: 18px;
     display: flex;
