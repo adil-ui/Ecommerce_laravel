@@ -6,7 +6,7 @@
     <div class="hero_left col-5 d-flex align-items-center px-5 mt-3">
         <div>
             <h2 class="text-white fw-bold mb-4 ">Welcome</h2>
-            <h2 class="text-white fw-bold mb-4 hero_left_title stroke-text">We Are AdilStore</h2>
+            <h2 class="text-white fw-bold mb-4 hero_left_title stroke-text">We Are OnlineShop</h2>
             <h4 class="text-white fw-bold mb-4 ">Register Now <i class="bi bi-arrow-right fs-4 ms-2 align-middle"></i></h4>
         </div>
     </div>

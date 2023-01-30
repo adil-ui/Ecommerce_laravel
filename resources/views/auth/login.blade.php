@@ -7,7 +7,7 @@
         <div>
             <div>
                 <h2 class="text-white fw-bold mb-4 ">Welcome</h2>
-                <h2 class="text-white fw-bold mb-4 hero_left_title stroke-text">We Are AdilStore</h2>
+                <h2 class="text-white fw-bold mb-4 hero_left_title stroke-text">We Are OnlineShop</h2>
                 <h4 class="text-white fw-bold mb-4 ">Login Now <i class="bi bi-arrow-right fs-4 ms-2 align-middle"></i></h4>
             </div>
         </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\AddProductController;
 use App\Http\Controllers\AllProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\EditProductController;
 use App\Http\Controllers\DeleteProductController;
 
@@ -51,6 +52,11 @@ Route::get('/details/{id}', [DetailsController::class, "getProduct"])->name('det
 
 Route::get('/profile', [ProfileController::class, 'updateUser'])->name("profile");
 Route::post('/profile', [ProfileController::class, 'updateUser'])->name("post-profile");
+
+Route::get('/women-category', [CategoryProductController::class, 'getWomenProduct'])->name("women-product");
+Route::get('/men-category', [CategoryProductController::class, 'getMenProduct'])->name("men-product");
+Route::get('/kid-category', [CategoryProductController::class, 'getKidProduct'])->name("kid-product");
+Route::get('/our-product', [CategoryProductController::class, 'getAllProduct'])->name("our-product");
 
 
 

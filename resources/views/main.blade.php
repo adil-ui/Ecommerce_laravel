@@ -13,30 +13,27 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-white shadow-sm">
             <div class="container">
-              <a class="navbar-brand fw-semibold" href="/home">AdilStore</a>
+              <a class="navbar-brand fw-bolder d-flex align-items-end" href="/home" style="color:#fcb500"><img src="{{ asset('images/logo.png') }}" alt="logo" width="35px" class="me-2"> Online <span style="color:#eb8233">Shope</span></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav  my-2 my-lg-0 ms-auto d-flex align-items-center">
                   <li class="nav-item  me-2">
-                    <a class="nav-link active" href="/home">Home</a>
+                    <a class="nav-link" href="{{ route('home') }}">Home</a>
                   </li>
                   <li class="nav-item  me-2">
-                    <a class="nav-link active" href="/home">Our Product</a>
+                    <a class="nav-link" href="{{ route('our-product') }}">Our Product</a>
                   </li>
-                  <li class="nav-item dropdown  me-2">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Category
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li class=""><a class="dropdown-item fw-semibold py-2 ps-4 pe-5" href="#">Woman</a></li>
-                      <li class=""><a class="dropdown-item fw-semibold py-2 ps-4 pe-5" href="#">Men</a></li>
-                      <li class=""><a class="dropdown-item fw-semibold py-2 ps-4 pe-5" href="#">Kids</a></li>
-                      <li class=""><a class="dropdown-item fw-semibold py-2 ps-4 pe-5" href="#">Accessories</a></li>
-                    </ul>
-                  </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link py-2" href="{{ route('men-product') }}">Men's</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-2" href="{{ route('women-product') }}">Woman's</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-2" href="{{ route('kid-product') }}">Kids's</a>
+                    </li>
                   <li class="nav-item dropdown me-2">
                         @if (Auth::check())
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
