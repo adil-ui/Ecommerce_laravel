@@ -1,21 +1,21 @@
 @extends('main')
-@section('title', 'Home')
+@section('title', 'OnlineShop')
 
 @section("content")
     <section class="container hero_section row  py-5 mx-auto">
             <div class="hero_left col-4 d-flex align-items-center px-5 ">
                 <div>
                     <h2 class="text-white fw-bold mb-4 hero_left_title">We Are OnlineShop</h2>
-                    <button class="btn btn-outline-light px-4 py-2 fw-semibold">Purchase Now!</button>
+                    <a href="{{ route('our-product') }}" class="btn btn-outline-light px-4 py-2 fw-semibold">Purchase Now!</a>
                 </div>
             </div>
             <div class="hero_right col-8 row gx-5 ms-auto">
                 <div class="col-6 mb-2">
                     <div class="top_left d-flex align-items-center px-4" >
                         <div class="text-center mx-auto">
-                            <a href=""><h3 class="text-white fw-bold mb-4 ">Women</h3></a>
+                            <h3 class="text-white fw-bold mb-4 ">Women</h3>
                             <p class="text-white"><i>Best Clothes For Women</i></p>
-                            <button class="btn btn-outline-light">Discover More</button>
+                            <a href="{{ route('women-product') }}" class="btn btn-outline-light">Discover More</a>
                         </div>
                     </div>
 
@@ -23,26 +23,25 @@
                 <div class="col-6 mb-2">
                     <div class="top_right d-flex align-items-center px-4 ">
                         <div class="text-center mx-auto">
-                            <a href=""><h3 class="text-white fw-bold mb-4 ">Men</h3></a>
+                            <h3 class="text-white fw-bold mb-4 ">Men</h3>
                             <p class="text-white"><i>Best Clothes For Men</i></p>
-                            <button class="btn btn-outline-light">Discover More</button>
+                            <a href="{{ route('men-product') }}" class="btn btn-outline-light">Discover More</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="bottom_left d-flex align-items-center px-4 ">
                         <div class="text-center mx-auto">
-                            <a href=""><h3 class="text-white fw-bold mb-4 ">Kids</h3></a>
+                            <h3 class="text-white fw-bold mb-4 ">Kids</h3>
                             <p class="text-white"><i>Best Clothes For Kids</i></p>
-
-                            <button class="btn btn-outline-light">Discover More</button>
+                            <a href="{{ route('kid-product') }}" class="btn btn-outline-light">Discover More</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="bottom_right d-flex align-items-center px-4 ">
                         <div class="text-center mx-auto">
-                            <a href=""><h3 class="text-white fw-bold mb-4 ">Accessories</h3></a>
+                            <h3 class="text-white fw-bold mb-4 ">Accessories</h3>
                             <p class="text-white"><i>Best Trend Accessories</i></p>
                             <button class="btn btn-outline-light">Discover More</button>
                         </div>
@@ -87,7 +86,7 @@
                         <a href="{{ route('details', ['id' => $men->id])}}"><h5 class="fw-semibold mb-3">{{$men->title}}</h5></a>
                         <small class="">{{Str::substr($men->description, 0, 40)}}...</small>
                         <div class="d-flex justify-content-between align-items-center mt-3">
-                            <h6 class="text-danger"><del>{{$men->price}}.00 Dh</del> </h6>
+                            <h6 class="text-danger"><del >{{$men->price}}.00 Dh</del> </h6>
                             <h5 class="text-bold" style="color:#FFB100; font-size:22px">{{$men->promotion_price}}.00 Dh</h5>
                         </div>
                         <div class="d-flex justify-content-end mt-3">

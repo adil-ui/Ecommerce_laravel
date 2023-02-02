@@ -8,9 +8,16 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
+use Exception;
 
 class AuthController extends Controller
 {
+
+    private $isApi;
+    public function __construct(Request $request)
+    {
+        $this->isApi = $request->segment(1) == "api" ? true : false;
+    }
     public function login()
     {
         /**if($request->isMethod("post")) {
@@ -47,8 +54,13 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
-            return redirect()->route('home');
+            if($this->isApi) {
+                return Auth::user();
+            }
+            return redirect()->route('profile');
+        }
+        if($this->isApi) {
+            return response()->json(["error" => "User not found", 404]);
         }
 
         session()->flash("error", "User not found");
@@ -70,7 +82,14 @@ class AuthController extends Controller
             if ($request->hasFile('picture') && $request->file('picture')->isValid()) {
                 $user->picture = 'storage/' . $request->picture->store('user/images');
             }
-            $user->save();
+            try {
+                $user->save();
+                if($this->isApi) {
+                    return $user;
+                }
+            } catch(Exception $e) {
+                return response()->json(["error" => "An error occurred " . $e->getMessage(), 404]);
+            }
             return redirect()->route('login');
         }
         return view('auth.register');
@@ -84,6 +103,6 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('home');
+        return redirect()->route('login');
     }
 }

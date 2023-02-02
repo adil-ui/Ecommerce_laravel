@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CartItem;
 use App\Models\Product;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
@@ -15,22 +16,28 @@ class CartController extends Controller
     public function addToCart($productId)
     {
         $product = Product::find($productId);
-        $productArray = (array) $product;
-        $cartItem = array_merge($productArray, ["quantity" => 1, "total" => $product->promotion_price]);
-        if (cookie("cart")) {
-            $cartItems = json_decode(cookie("cart")->getValue());
-            $itemKey = array_search($productArray, $cartItems);
-            if ($itemKey) {
-                $cartItems[$itemKey]["quantity"]++;
-                $cartItems[$itemKey]["total"] = $cartItems[$itemKey]["quantity"] * $product->promotion_price;
-            } else {
-                array_push($cartItems, $cartItem);
-            }
-            cookie("cart", json_encode($cartItems), 0);
-        } else {
-            $cartItems = [$cartItem];
-            cookie("cart", json_encode($cartItems), 0);
-        }
+        Cart::add(['id' => $productId, 'name' => $product->title, 'qty' => 1, 'price' => $product->promotion_price, 'weight' => 0, 'options' => ['description' => $product->description, 'ancient_price' => $product->price,'discount_rate' => $product->discount_rate, 'picture' => $product->picture]]);
+        return back();
+    }
+
+    public function deleteCartItem($rowId)
+    {
+        Cart::remove($rowId);
+        return back();
+    }
+
+    public function increment($rowId)
+    {
+        $item = Cart::get($rowId);
+        Cart::update($rowId, ['qty' => ++$item->qty]);
+        return back();
+    }
+
+
+    public function decrement($rowId)
+    {
+        $item = Cart::get($rowId);
+        Cart::update($rowId, ['qty' => --$item->qty]);
         return back();
     }
 }

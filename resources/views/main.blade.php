@@ -18,31 +18,31 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav  my-2 my-lg-0 ms-auto d-flex align-items-center">
-                  <li class="nav-item  me-2">
-                    <a class="nav-link" href="{{ route('home') }}">Home</a>
+                <ul class="navbar-nav my-2 my-lg-0 ms-auto d-flex align-items-center">
+                  <li class="nav-item me-2">
+                    <a class="nav-link fw-semibold"  href="{{ route('home') }}">Home</a>
                   </li>
-                  <li class="nav-item  me-2">
-                    <a class="nav-link" href="{{ route('our-product') }}">Our Product</a>
+                  <li class="nav-item me-2">
+                    <a class="nav-link fw-semibold" href="{{ route('our-product') }}">Our Product</a>
                   </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-2" href="{{ route('men-product') }}">Men's</a>
+                    <li class="nav-item me-2">
+                        <a class="nav-link fw-semibold" href="{{ route('men-product') }}">Men's</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-2" href="{{ route('women-product') }}">Woman's</a>
+                    <li class="nav-item me-2">
+                        <a class="nav-link fw-semibold" href="{{ route('women-product') }}">Woman's</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-2" href="{{ route('kid-product') }}">Kids's</a>
+                    <li class="nav-item me-2">
+                        <a class="nav-link fw-semibold" href="{{ route('kid-product') }}">Kids's</a>
                     </li>
                   <li class="nav-item dropdown me-2">
                         @if (Auth::check())
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="/{{Auth::user()->picture}}" alt="" class="rouded-circle" widht='40' height='40' style='border'>
+                            <img src="/{{Auth::user()->picture}}" alt="" class="rouded-circle " widht='40' height='40' style='border'>
                             <span>Hi, {{Auth::user()->name}}</span>
                         </a>
                         @else
                             <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-circle fs-4 text-dark align-middle"></i>
+                                <i class="bi bi-person-circle fs-4  align-middle"></i>
                             </a>
                         @endif
 
@@ -61,7 +61,7 @@
 
                   <li class="nav-item position-relative">
                     <a class="nav-link" href="{{ route('cart')}}"><i class="bi bi-cart3 fs-4"></i></a>
-                    <div class="rounded-circle position-absolute  text-white cart">0</div>
+                    <div class="rounded-circle position-absolute  text-white cart">{{ Cart::count() }}</div>
                 </li>
                 </ul>
               </div>
@@ -72,7 +72,7 @@
     @yield("content")
 
     <footer class='d-flex justify-content-center align-items-center w-100 bg-transparent pt-3'>
-        <p>AdilStore &copy; 2023 Copyright  Designed By <a href="https://adil-ui.github.io/Portfolio/" target="_blank" class="text-warning fw-semibold">KingAdil</a> </p>
+        <p>Onlineshop &copy; 2023 Copyright  Designed By <a href="https://adil-ui.github.io/Portfolio/" target="_blank" class="text-warning fw-semibold">KingAdil</a> </p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

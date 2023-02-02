@@ -5,10 +5,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\AddProductController;
+use App\Http\Controllers\AllOrderController;
 use App\Http\Controllers\AllProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryProductController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\EditProductController;
 use App\Http\Controllers\DeleteProductController;
 
@@ -67,3 +69,14 @@ Route::get('/checkout', function () {
 
 Route::get('/cart', [CartController::class, 'index'])->name("cart");
 Route::get('/add-cart/{productId}', [CartController::class, 'addToCart'])->name("add-cart");
+Route::get('/cart-delete-item/{rowId}', [CartController::class, 'deleteCartItem'])->name("cart-delete-item");
+Route::get('/increment/{rowId}', [CartController::class, 'increment'])->name("increment");
+Route::get('/decrement/{rowId}', [CartController::class, 'decrement'])->name("decrement");
+
+Route::get('/chekout', [CheckoutController::class, 'index'])->name("checkout");
+Route::post('/chekout', [CheckoutController::class, 'index'])->name("post-checkout");
+Route::get('/create-order', [CheckoutController::class, 'createOrder'])->name("create-order");
+
+
+Route::get('/all-orders', [AllOrderController::class, 'index'])->name("all-orders");
+Route::get('/delete-order/{id}', [AllOrderController::class, 'deleteOrder'])->name("delete-order");

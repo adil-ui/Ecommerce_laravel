@@ -12,10 +12,10 @@
             <h3 class="text-warning mb-3">{{$product->promotion_price}}.00 Dh</h3>
             <h5 class="text-danger"><del>{{$product->price}}.00 Dh</del></h5>
             <div class="mt-4">
-                <a href="#" class="btn btn-warning fw-semibold">Add To Cart <i class="ms-2 bi bi-cart-plus-fill"></i></a>
+                <a href="{{ route('add-cart', ['productId' => $product->id])}}" class="btn btn-warning fw-semibold">Add To Cart <i class="ms-2 bi bi-cart-plus-fill"></i></a>
             </div>
         </div>
 
     </section>
-    
+
 @endsection

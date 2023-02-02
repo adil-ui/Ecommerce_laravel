@@ -24,7 +24,7 @@
                 <input type="password" class="form-control"  name='password' required>
             </div>
             @if (Session::has('error'))
-                <div class="alert alert-danger py-0">{{ Session::get('error') }}</div>
+                <div class="alert alert-danger py-2">{{ Session::get('error') }}</div>
             @endif
             <div class="mt-4 d-flex justify-content-between align-items-center">
                 <button type="submit" class="btn btn-primary">Connect</button>
