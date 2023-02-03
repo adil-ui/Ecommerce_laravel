@@ -53,14 +53,14 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            if($this->isApi) {
+            if ($this->isApi) {
                 return Auth::user();
             }
+            $request->session()->regenerate();
             return redirect()->route('profile');
         }
-        if($this->isApi) {
-            return response()->json(["error" => "User not found", 404]);
+        if ($this->isApi) {
+            return response()->json(["error" => "User not found"], 404);
         }
 
         session()->flash("error", "User not found");
@@ -84,11 +84,11 @@ class AuthController extends Controller
             }
             try {
                 $user->save();
-                if($this->isApi) {
+                if ($this->isApi) {
                     return $user;
                 }
-            } catch(Exception $e) {
-                return response()->json(["error" => "An error occurred " . $e->getMessage(), 404]);
+            } catch (Exception $e) {
+                return response()->json(["error" => "An error occurred " . $e->getMessage()], 404);
             }
             return redirect()->route('login');
         }

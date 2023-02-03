@@ -24,7 +24,7 @@
         @endforeach
         <div class="col-8 bg-white rounded-1 py-2 shadow-sm">
             @if (Cart::count() == 0)
-                <div class="d-flex justify-content-center align-items-center">
+                <div class="text-center my-5">
                     <h4 class="mb-4">Your cart is empty</h4>
                     <a href="{{ route('home') }}" class="btn btn-warning px-4">Purchase Now</a>
                 </div>
