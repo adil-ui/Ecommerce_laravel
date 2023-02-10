@@ -78,5 +78,5 @@ Route::post('/chekout', [CheckoutController::class, 'index'])->name("post-checko
 Route::get('/create-order', [CheckoutController::class, 'createOrder'])->name("create-order");
 
 
-Route::get('/all-orders', [AllOrderController::class, 'index'])->name("all-orders");
-Route::get('/delete-order/{id}', [AllOrderController::class, 'deleteOrder'])->name("delete-order");
+Route::get('/all-orders', [AllOrderController::class, 'OrdersList'])->name("all-orders");
+Route::get('/order-details/{id}', [AllOrderController::class, 'OrderDetails'])->name("order-details");

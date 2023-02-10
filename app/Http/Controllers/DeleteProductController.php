@@ -12,4 +12,9 @@ class DeleteProductController extends Controller
         return redirect()->route('all-product');
     }
 
+    public function delete($id) {
+        Product::find($id)->delete();
+        return response()->json(['success' => 'deleted']);
+    }
+
 }

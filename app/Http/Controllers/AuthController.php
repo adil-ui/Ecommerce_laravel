@@ -60,6 +60,7 @@ class AuthController extends Controller
             return redirect()->route('profile');
         }
         if ($this->isApi) {
+
             return response()->json(["error" => "User not found"], 404);
         }
 
